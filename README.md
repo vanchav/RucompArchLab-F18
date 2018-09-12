@@ -1,1 +1,1 @@
-# -RucompArchLab-F18
+# RucompArchLab-F18
