@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-#define MAX_LEN 80
-
 int main (int argc, char *argv[])
 {
-  char a_word[MAX_LEN];
+  int i, *p, count = 0;
+  p = &count;
 
-  printf ("What's your name?\n");
-  fgets (a_word, MAX_LEN, stdin);
-  printf("Hey, %sI just really wanted to say hello to you.\nI hope you have a wonderful day.", a_word);
+  for (i = 0; i < 10; i++) {
+  	(*p)++;	//Do you understand this line of code and all the other permutations of the operators? ;)
+  }
 
+  printf("Thanks for waddling through this program. Have a nice day.");
   return 0;
 }
