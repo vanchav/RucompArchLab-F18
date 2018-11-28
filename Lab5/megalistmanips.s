@@ -56,16 +56,16 @@ map:
  
 	# remember that each node is 12 bytes long: 4 for the array pointer, 4 for the size of the array, and 4 more for the pointer to the next node 
 mapLoop: 
-	lw t1, 0(s0)		#load the address of the array of current node into t1 
+	lw t3, 0(s0)		#load the address of the array of current node into t3 
 	lw	t2, 4(s0)		# load the size of the node's array into t2 
 	
-    slli t4, t0, 2
-    add	t1, t1, t4		# offset the array address by the count 
-	lw	a0, 0(t1)		# load the value at that address into a0 
+    slli t4, t0, 2		#the offset is supposed to be index multiplied by 4
+    add	t3, t3, t4		# offset the array address by the count 
+	lw	a0, 0(t3)		# load the value at that address into a0 
 	 
 	jalr	s1			# call the function on that value. 
 	 
-	sw	a0, 0(t1)		# store the returned value back into the array 
+	sw	a0, 0(t3)		# store the returned value back into the array 
 	addi	t0, t0, 1		# increment the count 
 	bne	t0, t2, mapLoop	# repeat if we haven't reached the array size yet 
 	 
