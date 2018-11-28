@@ -82,9 +82,9 @@ done:
 	jr	ra 
  
 mystery: 
-	mul	t3, a0, a0 
-	add	a0, t3, a0 
-	jr	ra 
+	mul	t1, a0, a0 
+	add	a0, t1, a0 
+	jr	ra
  
 create_default_list: 
 	addi	sp, sp, -4 
