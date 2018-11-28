@@ -58,9 +58,9 @@ map:
 mapLoop: 
 	lw t1, 0(s0)		#load the address of the array of current node into t1 
 	lw	t2, 4(s0)		# load the size of the node's array into t2 
-	 
-	slli t5, t0, 2
-    add	t1, t1, t5		# offset the array address by the count 
+	
+    slli t4, t0, 2
+    add	t1, t1, t4		# offset the array address by the count 
 	lw	a0, 0(t1)		# load the value at that address into a0 
 	 
 	jalr	s1			# call the function on that value. 
@@ -82,8 +82,8 @@ done:
 	jr	ra 
  
 mystery: 
-	mul	t4, a0, a0 
-	add	a0, t4, a0 
+	mul	t3, a0, a0 
+	add	a0, t3, a0 
 	jr	ra 
  
 create_default_list: 
@@ -165,5 +165,4 @@ malloc:
 	mv a1, a0 # Move a0 into a1 so that we can do the syscall correctly
 	li	a0, 9 
 	ecall 
-	jr	ra 
- 
+	jr	ra
