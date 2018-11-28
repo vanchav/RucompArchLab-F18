@@ -66,20 +66,13 @@ main:
 f:
 	la	t0, output	# Hmm... why might this be a good idea?
 	
-	# YOUR CODE GOES HERE!
-    addi sp, sp, -8 #move the pointer down to make sense
-    sw x1, 0(sp)
-    sw s0, 4(sp)
-    
-    addi a0, a0, 3
-    slli a0, a0, 2
-    add t0, t0, a0
-    
-    lw a0, 0(t0)
-    lw s0, 4(sp)
-    lw x1, 0(sp)
-	addi sp, sp, 8
-    
+	# YOUR CODE GOES HERE!   
+   	addi t1, a0, 3          # changes a0 values to be [0,1,2,3,4,5,6] and stores it in t1
+    addi t2, x0, 4
+    mul t1, t2, t1          # multiplies the offset by 4
+    add t0, t0, t1          # adds the offset value to the array 
+    lw a0, 0(t0)            # loads the value using the new offset to a0
+
 	jr	ra		# Always remember to jr ra after your function!
   
 print_int:
